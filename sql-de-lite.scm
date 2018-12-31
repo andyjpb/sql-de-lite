@@ -520,6 +520,8 @@ int busy_notification_handler(void *ctx, int times) {
                   (dprint "pulled statement from cache " s1)
                   (set-statement-handle! s (statement-handle s1))
                   (set-statement-cached! s #f)
+		  ;(add-active-statement! s)
+		  ; why not add to active-statement?
                   s)))
           ((prepare-handle db sql)
            => (lambda (h)
